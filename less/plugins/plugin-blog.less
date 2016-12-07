@@ -173,9 +173,15 @@
     .post-article {
         position: relative;
         width: 100%;
-        margin-bottom: 20px;
         padding: 0;
         background-color: @color-swatch7;
+        margin-bottom: 40px;
+        @media @tablet {
+            margin-bottom: 30px;
+        }
+        @media @mobile {
+            margin-bottom: 20px;
+        }
 
         .flex-display;
         .justify-content(center);
