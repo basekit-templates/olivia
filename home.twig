@@ -1,0 +1,23 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+        <!-- Template Feature Widget -->
+
+        {{widget('feature', 'featurehome', {
+            'header': 'profile',
+            'strapline': 'profile',
+            'buttonText':'Vivemus',
+            'defaultBgImg': asset("images/feature-bg2.jpg"),
+            'positionTopPercentage': '0',
+            'showBtn': true
+        })|raw}}
+
+        <!-- Main Widget Zone -->
+
+        {{zone('main')|raw}}
+
+{% endblock %}
+
+
+

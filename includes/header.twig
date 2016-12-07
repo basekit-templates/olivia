@@ -1,0 +1,29 @@
+<!-- Template Widgets -->   
+
+<div class="template-header">
+
+    <div class="header-social flex-item">
+        {{widget('socialicons', 'headersocial', {
+            'googleplus': 'profile',
+            'linkedin':'profile',
+            'facebook': 'profile',
+            'twitter': 'profile',
+            'youtube': 'profile',
+            'rss': 'profile',
+            'pinterest': 'profile',
+            'instagram': 'profile'
+        })|raw}}
+    </div>
+
+    <div class="brand flex-item">
+        {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png'),"showTplWidget":"0"})|raw}}
+        {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
+    </div>
+
+    <div class="navigation flex-item">
+        {{widget('extendednavigation', 'navigation', {"align":"center"})|raw}}
+    </div>
+
+</div>
+
+<!-- End Template Widgets -->

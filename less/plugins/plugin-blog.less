@@ -1,0 +1,433 @@
+// ----------------------------------------------
+// BaseKit Standard Template: LESS > Plugin: Blog
+// ----------------------------------------------
+
+
+// -------------------------------------------
+// Search Form
+// -------------------------------------------
+
+// Styles are set in 'less > template.less' (4. #Forms)
+
+
+
+
+// -------------------------------------------
+// Blog Post 
+// -------------------------------------------
+
+.blogpost {
+    .post-article:last-child {
+        margin-bottom: 0;
+    }
+    .post-article {
+        padding-bottom: 30px;
+        background-color: @color-swatch7;
+    }
+    .post-image {
+        background-position: inherit;
+        .image-link {
+            height: 450px;
+            background-position: inherit;
+            background-size: cover;
+            background-position: center;
+            @media only screen and (max-width: 1500px) {
+                height: 400px;
+            }
+            @media only screen and (max-width: 1200px) {
+                height: 350px;
+            }
+            @media @tablet {
+                height: 250px;
+            }
+            @media @mobile {
+                height: 200px;
+            }
+        }
+        .image {
+            display: none;
+        }
+    }
+
+    .post-title {
+        margin: 10px 0;
+        color: @color__blogpost-title--text;
+    }
+
+    .post-content,
+    .post-footer {
+        display: inline-block;
+        width: 60%;
+        max-width: none;
+        margin: 0 20%;
+        background-color: transparent;
+        z-index: 2;
+        @media only screen and (max-width: 1140px) {
+            width: 80%;
+            margin: 0 10%;
+        }
+        @media only screen and (max-width: 900px) {
+            width: 86%;
+            margin: 0 7%;
+        }
+        @media @tablet {
+            width: 90%;
+            margin: 0 5%;
+        }
+    }
+
+    .post-content {
+        margin-top: 20px;
+    }
+
+    .post-footer {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid lighten(@color-swatch5,40%);
+    }
+
+    .timestamp,
+    .category-title,
+    .category-link,
+    .tags-title,
+    .tag-link,
+    .button {
+        font-size: 14px;
+    }
+    .button {
+        padding: 0 10px 0 0;
+        color: @color-swatch5;
+        background-color: transparent;
+        border: 0;
+        &:hover {
+            background-color: transparent;
+            text-decoration: none;
+            &.icon--twitter {
+                color: #4099FF;
+            }
+            &.icon--facebook {
+                color: #3b5998;
+            }
+            &.icon--googleplus {
+                color: #d34836;
+            }
+        }
+    }
+}
+
+.bk-pt-blogpost.blog-post--has-image {
+    .post-title {
+        margin-top: 40px;
+        @media @tablet {
+            margin-top: 20px;
+        }
+    }
+}
+
+.responsivecolumns {
+    .blogpost {
+        .post-article {
+            padding: 25px;
+        }
+        .post-content,
+        .post-footer {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .post-image .image-link {
+            max-height: 300px;
+            height: auto;
+            min-height: 100px;
+            background-size: contain;
+            background-color: transparent;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+
+// -------------------------------------------
+// Posts List
+// -------------------------------------------
+
+
+.bk-pt-blogpostlist .blogpostlist .post-article:first-child {
+    border-top: 1px solid darken(@color-swatch1, 9%);
+}
+
+.blogpostlist {
+    margin-bottom: 20px;
+
+    .blog-home-link {
+        display: inline-block;
+        width: 100%;
+        padding: 11px 15px 9px;
+        margin-bottom: 15px;
+        font-family: @font__h1--font-family;
+        text-align: center;
+    }
+
+    // Blog Article
+    .post-article {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+        background-color: @color-swatch7;
+
+        .flex-display;
+        .justify-content(center);
+        .flex-wrap(wrap);
+        .align-items(center);
+        .align-content(center);
+
+        @media only screen and (max-width: 800px) {
+            margin-bottom: 20px 0;
+            padding-bottom: 10px;
+        }
+    }
+
+    .post-article,
+    .post-image .image-link {
+        min-height: 350px;
+        
+    }
+    .post-article {
+        @media only screen and (max-width: 800px) {
+            min-height: inherit;
+        }
+    }
+    .post-image .image-link {
+        @media only screen and (max-width: 800px) {
+            min-height:250px;
+        }
+    }
+
+    .title-link {
+        color: @color__blogpostlist-title--text;
+    }
+    .title-link:hover {
+        color: @color-swatch3;
+        text-decoration: none;
+    }
+
+    // Blog Post Content
+    .post-content .post-title,
+    .post-content .post-excerpt {
+        padding: 0 40px 10px;
+        @media @tablet {
+            padding: 0 30px 10px;
+        }
+    }
+
+    // Posts with NO image
+    // ---------------------------
+    .post-article > .post-content {
+        .flex-order(1);
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        @media only screen and (max-width: 800px) {
+            text-align: left;
+        }
+    }
+
+    // Read Button
+    .read-more {
+        display: inline-block;
+        background-color: transparent;
+    }
+
+    // Posts with IMAGE
+    // ---------------------------
+    .post-image + .post-content { 
+        -webkit-flex: 1 1 50%;
+        -ms-flex: 1 1 50%;
+        flex: 1 1 50%;
+        text-align: left;
+    }
+
+    // Blog Image
+    .post-image {
+        -webkit-flex: 0 1 50%;
+        -ms-flex: 0 1 50%;
+        flex: 0 1 50%;
+        @media only screen and (max-width: 800px) {
+            margin: 0 0 20px;
+        }
+
+        // Image Link
+        .image-link {
+            background-position: 0;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            background-size: cover;
+            background-position: 50%;
+            margin: 0;
+        }
+        .image {
+            width: 0;
+            height: 0;
+        }
+    }
+
+    // Posts Footer
+    .post-footer {
+        width: 50%;
+        position: absolute;
+        left: 50%;
+        bottom: 30px;
+        text-align: right;
+        @media only screen and (max-width: 800px) {
+            width: auto;
+            position: relative;
+            left: inherit;
+            right: 30px;
+            bottom: 15px;
+        }
+        .timestamp {
+            max-width: 700px;
+            margin: 0 auto;
+            padding-right: 40px;
+            color: lighten(@color__p--text,15%);
+            @media only screen and (max-width: 800px) {
+                max-width: inherit;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    // Tablet Breakpoint
+    @media only screen and (max-width: 800px) {
+        .post-article {
+            display: inline-block;
+        }
+
+        // Sets image and content above and below each other
+        .post-image,
+        .post-content {
+            width: 100%;
+        }
+
+        // Post Image
+        .post-image .image-link {
+            height: 250px;
+        }
+
+
+        .read-more {
+            margin-top: 5px;
+        }
+    }
+
+  
+    // Mobile
+    @media @mobile {
+        .post-article {
+            display: block;
+            width: 100%;
+        }
+       
+        .post-footer {
+            .pagination-list {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+// Post List Footer
+.post-list-footer {
+    .pagination-list {
+        .flex-display;
+        .justify-content(space-between);
+        .flex-wrap(wrap);
+
+        margin: 20px auto;
+    }
+    .pagination-item {
+        margin: 0 30px;
+    }
+}
+
+
+// Responsive Columns for Blogpostlist
+// -------------------------------------------
+
+.responsivecolumns .blogpostlist {
+    .post-article {
+        display: block;
+        width: 100%;
+        border-bottom: none;
+    }
+    .post-article:first-child {
+        border-top: none;
+    }
+    .post-article:nth-child(even) {
+        background-color: @color-swatch1;
+    }
+    .post-content .post-title,
+    .post-content .post-excerpt {
+        padding: 0;
+    }
+    .post-image ~ .post-footer {
+        width: 100%;
+        padding: 10px 0;
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: left;
+        .timestamp {
+            max-width: inherit;
+            position: relative;
+            right: 0;
+            bottom: 0;
+            padding: 0;
+        }
+    }
+    .post-footer .timestamp {
+        margin: 0 0 10px;
+    }
+    .post-image .image-link {
+        height: auto;
+        max-height: 250px;
+        min-height: inherit;
+        text-align: center;
+        background-image: none !important;
+    }
+    .post-image {
+        @media only screen and (max-width: 800px) {
+            margin: 0;
+        }
+    }
+    .post-image .image {
+        width: auto;
+        height: auto;
+    }
+    .post-content {
+        padding: 20px 0 0;
+    }
+    .post-footer {
+        padding: 20px 5px 30px;
+        .timestamp {
+            display: block;
+            padding: 0 0 15px;
+        }
+    }
+    .post-list-footer .pagination-list {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .post-list-footer .pagination-item {
+        margin: 0;
+    }
+}
+
+

@@ -1,0 +1,1271 @@
+// -----------------------------------------
+// BaseKit Standard Template: LESS > Widgets
+// -----------------------------------------
+
+
+// -----------------------------
+// #Table of Contents
+// -----------------------------
+
+
+//  1.   #LOGO
+//  2.   #COMPANY NAME
+//  3.   #NAVIGATION
+//  4.   #FEATURE
+
+//  5.   #IMAGES
+//  6.   #GALLERY
+//  7.   #SLIDESHOW
+
+//  8.   #BUTTONS
+//  8.1  -- #STANDARD
+//  8.2  -- #TWEET
+//  8.3  -- #DROPBOX
+//  8.4  -- #CLICK TO CALL
+//  8.5  -- #PAYPAL
+
+//  9.   #CONTACT FORM
+// 10.   #SIGNUP FORM & BLOG SEARCH
+
+// 11.   #SOCIAL ICONS
+// 12.   #TWITTER FEED
+
+// 13.   #DIVIDER (KEYLINE)
+// 14.   #PROFILE
+// 15.   #MAP
+// 16.   #YELP
+
+
+// -----------------------------
+// 1-2  #Logo & #Company Name
+// -----------------------------
+
+
+.brand {
+    text-align: center;
+    margin: 0 0 .5em;
+}
+
+.company-text {
+    @media @tablet {
+        font-size: bkscale(@font__companyname--font-size, .8);
+        line-height: bkscale(@font__companyname--line-height, .8);
+    }
+}
+
+.logo-image {
+    display: inline-block;
+}
+
+a.company-link:hover {
+    text-decoration: none;
+    color: @color__secondary;
+}
+
+
+
+// -----------------------------
+// 3.  #Navigation
+// -----------------------------
+
+// Widget Overlay
+.widget__extendednavigation {
+    + .widget-overlay {
+        @media @tablet {
+            display: none;
+        }
+    }
+
+    &.open + .widget-overlay {
+        @media @tablet {
+            z-index: 10400!important;
+            display: block;
+            margin: 44px auto 0;
+
+            &:hover {
+                background: rgba(0, 147, 135, 0.2);
+                border: 1px solid rgb(0, 148, 136);
+                box-shadow: rgba(0, 147, 135, 0.2) 0px 0px 0px 3px inset;
+            }
+        }
+    }
+}
+
+// Remove margin from ul nav list and widget
+
+.widget[data-widget-type="extendednavigation"] {
+    margin-bottom: 0;
+}
+
+.navigation-list {
+    margin: 0;
+    background-color: transparent;
+    @media only screen and (min-width: 769px) {
+        padding: 10px 0;
+    }
+}
+
+// Navigation alignment
+
+.extendednavigation {
+    &.align-left { text-align: left; }
+    &.align-right { text-align: right; }
+    &.align-center { text-align: center; }
+}
+
+// Nav font
+
+.extendednavigation {
+    &__item-name.item-name {
+        color: @color__navigation--text;
+        font-size: @font__navigation--font-size;
+        font-weight: @font__navigation--font-weight;
+        line-height: @font__navigation--line-height;
+        letter-spacing: @font__navigation--letter-spacing;
+        &:hover {
+            color: @color__navigation--text--hover;
+        }
+    }
+}
+
+// Dropdown Menu - Folder Item Parent: Gives arrow
+
+.item-name--parent:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    border: 5px solid transparent;
+    border-top-color: @color__navigation--text;
+}
+
+.item-name--parent:hover:after {
+    border-top-color: @color__navigation--text--hover;
+}
+
+// Selected nav item
+
+.navigation-item.selected > .item-name {
+    color: @color__navigation--text--selected;
+}
+
+// Folder
+
+.navigation-list--children {
+    left: inherit;
+    right: 0;
+    width: auto;
+    min-width: 200px;
+    white-space: normal;
+    border: 1px solid darken(@color__body--background, 7%);
+    background-color: @color__navigation--background;
+    // Padding for folder list and folder items on desktop
+    @media only screen and (min-width: 769px) {
+        padding: 7px 0;
+        .item-name {
+            padding: 7px 14px;
+        }
+    }
+    @media @tablet {
+        width: 100%;
+    }
+}
+
+
+// Collapsible navigation
+// ----------------------
+// MISSING CLASS IN THE TOGGLE WHEN YOU CLICK ON IT.
+// A SCRIPT FOR THE TOGGLE TO WORK HAS BEEN ADDED TO LAYOUT.TWIG
+
+
+.navigation-toggle {
+    display: none;
+}
+
+@media @tablet {
+    .navigation-toggle {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        height: 45px;
+        text-indent: -9999px;
+        line-height: 0;
+        background-color: darken(@color__navigation--background, 10%);
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 0;
+        outline: 0;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 3px;
+            top: 0;
+            left: 50%;
+            right: 0;
+            margin-top: 15px;
+            margin-left: -13px;
+            background: darken(@color__navigation--background, 50%);
+            box-shadow: 0 6px 0 darken(@color__navigation--background, 50%);
+            .transition( all, 0.5s, ease );
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 3px;
+            top: 12px;
+            left: 50%;
+            right: 0;
+            margin-top: 15px;
+            margin-left: -13px;
+            background: darken(@color__navigation--background, 50%);
+            .transition( all, 0.5s, ease );
+        }
+    }
+    .navigation-toggle:hover {
+        background-color: @color-swatch3;
+            &:before {
+                background: @color-swatch7;
+                box-shadow: 0 6px 0 @color-swatch7;
+            }
+            &:after {
+                background: @color-swatch7;
+            }
+    }
+    // Toggle Button Open State
+    .open & {
+        &.navigation-toggle {
+            background-color: @color-swatch3;
+            &:before {
+                margin-top: 21px;
+                background: @color-swatch7;
+                box-shadow: none;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+                .transition( all, 0.5s, ease );
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                width: 26px;
+                height: 3px;
+                top: 0;
+                left: 50%;
+                right: 0;
+                margin-top: 21px;
+                margin-left: -13px;
+                background: @color-swatch7;
+                box-shadow: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                .transition( all, 0.5s, ease );
+            }
+        }
+        &.navigation-toggle:hover {
+            background-color: lighten(@color-swatch3,10%);
+            &:before,
+            &:after {
+                background: @color-swatch7;
+            }
+        }
+    }
+    .navigation-body {
+        display: none;
+        .open & {
+            display: block;
+        }
+    }
+    .navigation-item {
+        width: 100%;
+        border-bottom: 1px solid darken(@color__body--background, 7%);
+    }
+}
+
+
+
+// -----------------------------
+// 4.  #Feature
+// -----------------------------
+
+
+.feature {
+    margin-bottom: 0;
+    background-color: transparent;
+    -webkit-box-shadow: 10px 5px 194px -41px rgba(0,0,0,0.2);
+    -moz-box-shadow: 10px 5px 194px -41px rgba(0,0,0,0.2);
+    box-shadow: 10px 5px 194px -41px rgba(0,0,0,0.2);
+
+    .background-image,
+    .content-wrap {
+        min-height: 500px;
+        height: 500px;
+        @media @tablet {
+            min-height: 350px;
+            height: 350px;
+        }
+        @media screen and (max-width: 600px) {
+            min-height: 300px;
+            height: 300px;
+        }
+    }
+
+    .background-image {
+        display: table;
+        width: 100%;
+        background-size: cover;
+    }
+
+    .content-wrap {
+        padding: 0;
+        position: relative;
+        width: 100%;
+        vertical-align: bottom;
+        display: table-cell;
+    }
+
+    .content-inner-wrap {
+        width: auto;
+        padding: 20px 30px;
+        background-color: @color__feature-content--background;
+        text-align: center;
+        @media screen and (max-width: 600px) {
+            text-align: center;
+        }
+    }
+
+    .headline {
+        padding-bottom: 5px;
+        font-family: @font__feature-headline--font-family;
+        color: @color__feature-headline--text;
+        font-size: @font__feature-headline--font-size;
+        font-weight: @font__feature-headline--font-weight;
+        line-height: @font__feature-headline--line-height;
+    }
+
+    .strapline {
+        padding-bottom: 0;
+        font-family: @font__feature-strapline--font-family;
+        color: @color__feature-strapline--text;
+        font-size: @font__feature-strapline--font-size;
+        font-weight: @font__feature-strapline--font-weight;
+        line-height: @font__feature-strapline--line-height;
+    }
+
+    .button {
+        margin-top: 10px;
+    }
+
+    .button:hover {
+        background-color: @color__feature-button--background--hover;
+    }
+
+}
+
+
+
+// Feature Image and Text Size on Tablet/Mobile
+
+@media @tablet {
+    .feature {
+        .headline {
+            font-size: bkscale(@font__feature-headline--font-size, .9);
+            line-height: bkscale(@font__feature-headline--line-height, .9);
+        }
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    .feature {
+        .headline {
+            font-size: bkscale(@font__feature-headline--font-size, .8);
+            line-height: bkscale(@font__feature-headline--line-height, .8);
+        }
+    }
+}
+
+
+
+
+// -----------------------------
+// 5.  #Images
+// -----------------------------
+
+
+// Image Captions
+// --------------
+
+// Image Widget
+.imagewidget__image-title {
+    color: @color__image-title--text;
+    font-family: @font__h4--font-family;
+    font-size: @font__h4--font-size;
+    font-weight: @font__h4--font-weight;
+    line-height: @font__h4--line-height;
+}
+.imagewidget__image-description {
+    color: @color__image-description--text;
+    font-family: @font__p--font-family;
+    font-size: @font__p--font-size;
+    font-weight: @font__p--font-weight;
+    line-height: @font__p--line-height;
+}
+
+
+
+// -----------------------------
+// 6.  #Gallery
+// -----------------------------
+
+
+// The following styles give you a three column gallery layout with a
+// coloured overlay
+
+
+// Gallery Layout
+// --------------
+
+// Gallery List
+.gallery-list {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+// Gallery Item
+.gallery__gallery-item {
+    position: relative;
+    width: 32%;
+    margin-bottom: 20px;
+    // Display 100% at mobile
+    @media @mobile {
+        width: 100%;
+    }
+}
+
+
+// Gallery Images
+// --------------
+
+// Use Background-image Method
+.gallery__image-link {
+    display: block;
+    height: 280px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @media @tablet {
+        height: 210px;
+    }
+}
+
+.gallery__caption {
+    .caption-link:hover {
+        text-decoration: none;
+    }
+    .image-title,
+    .image-description {
+        &:hover {
+            color: @color__secondary;
+        }
+    }
+    @media @tablet {
+        padding: 10px;
+        .image-title,
+        .image-description {
+            font-size: bkscale(@font__p--font-size, .9);
+            line-height: bkscale(@font__p--line-height, .9);
+        }
+    }
+}
+
+// Gallery Images in Responsive Columns
+
+// Two Columns
+.columns-two-left,
+.columns-two-right {
+    .gallery__image-link {
+        height: 150px;
+        @media @tablet {
+            height: 107px;
+        }
+        @media @mobile {
+            height: 200px;
+        }
+    }
+    .gallery__caption {
+        padding: 10px;
+        // hide description on desktop
+        @media only screen and (min-width: 768px) {
+            .image-description {
+                display: none;
+            }
+        }
+    }
+    // hide caption on tablet only
+    @media only screen and (max-width : 768px) and (min-width : 480px) {
+        .gallery__figure:hover .gallery__caption {
+            display: none;
+        }
+    }
+}
+// Three Columns
+.columns-three-left,
+.columns-three-middle,
+.columns-three-right {
+    .gallery__image-link {
+        height: 95px;
+        @media @tablet {
+            height: 69px;
+        }
+        @media @mobile {
+            height: 200px;
+        }
+    }
+    // hide caption on desktop and tablet
+    @media only screen and (min-width: 480px) {
+        .gallery__figure:hover .gallery__caption {
+            display: none;
+        }
+    }
+}
+// Four Columns
+.columns-four-first,
+.columns-four-second,
+.columns-four-third,
+.columns-four-fourth {
+    .gallery__image-link {
+        height: 69px;
+        @media @tablet {
+            height: 107px;
+        }
+        @media @mobile {
+            height: 200px;
+        }
+    }
+    // hide caption on desktop and tablet
+    @media only screen and (min-width: 480px) {
+        .gallery__figure:hover .gallery__caption {
+            display: none;
+        }
+    }
+}
+
+
+
+// Hide Img Element
+.gallery__image { display: none; }
+
+
+// Gallery Image Captions
+// ----------------------
+
+// Hide Caption
+.gallery__caption {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 20px;
+    opacity: 0;
+    background-color: hsla(hue(@color__body--background),
+                           saturation(@color__body--background),
+                           lightness(@color__body--background), 0.8);
+    border: 1px solid darken(@color__body--background, 5%);
+    .transition( all, 0.5s, ease );
+}
+
+.gallery__image-title {
+    color: @color-swatch4;
+    .transition( all, 0.5s, ease );
+}
+
+.gallery__image-description {
+    color: @color-swatch5;
+    .transition( all, 0.5s, ease );
+}
+
+// Show Caption
+.gallery__figure:hover .gallery__caption {
+    opacity: 1;
+    a:hover {
+        text-decoration: none;
+        .image-title,
+        .image-description {
+            color: @color__secondary;
+        }
+    }
+}
+
+
+
+
+// -----------------------------
+// 7.  #Slideshow
+// -----------------------------
+
+
+
+// Slideshow Layout
+// ----------------
+
+// Slideshow Height
+.slides-list,
+.responsiveslideshow .figure {
+    position: relative;
+    min-height: 400px;
+    background-color: @color__slideshow--background;
+    @media @tablet {
+        min-height: 300px;
+    }
+    @media @mobile {
+        min-height: 200px;
+    }
+}
+
+// Slideshow Images
+// ----------------
+
+// Use Background-image Method
+.responsiveslideshow .figure {
+    background-size: cover;
+    background-position: center;
+}
+// Hide Img Element
+.responsiveslideshow .image { display: none; }
+
+// Slideshow Image Captions
+// ------------------------
+
+.responsiveslideshow .caption {
+    @media only screen and (min-width:800px) {
+        width: 30%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    background-color: @color__slideshow-caption--background;
+    @media only screen and (min-width:800px) {
+        padding: 20px 20px 75px;
+        overflow: scroll;
+    }
+    .image-title,
+    .image-description {
+        padding: 0 5px;
+    }
+    .image-title {
+        color: @color__slideshow-title--text;
+        font-family: @font__h3--font-family;
+        font-size: @font__h4--font-size;
+        line-height: @font__h4--line-height;
+
+        @media only screen and (min-width:800px) {
+            padding: 0 5px 10px;
+
+            font-size: @font__h3--font-size;
+            line-height: @font__h3--line-height;
+        }
+    }
+    .image-description {
+        color: @color__slideshow-description--text;
+    }
+}
+
+// Slideshow Navigation
+// --------------------
+
+.slide-navigation {
+    // Removes button text
+    .control-text {
+        display: none;
+    }
+    .icon:before {
+        margin-right: 0;
+    }
+
+    top: 0;
+    @media only screen and (min-width:800px) {
+        margin: 0;
+        position: relative;
+        top: -67px;
+        left: 0;
+        height: 67px;
+        width: 30%;
+        padding: 10px 20px;
+    }
+}
+
+// Slideshow Navigation for Tablet and Desktop
+@media only screen and (min-width:480px) {
+    .slide-navigation {
+        .button {
+            color: @color-swatch1;
+            padding: 0;
+            outline: 0;
+            .border-radius(50px);
+        }
+        .button:hover {
+            color: @color-swatch7;
+            background-color: transparent;
+        }
+    }
+}
+.slide-navigation {
+    .button {
+        padding: 0;
+    }
+    .previous-button,
+    .next-button,
+    .pause-toggle {
+        min-height: initial;
+        width: 40px;
+        height: 40px;
+        color: @color-swatch4;
+        background-color: darken(@color__body--background,10%);
+        border: 1px solid darken(@color__body--background,12%);
+        &:hover {
+            color: @color-swatch7;
+            background-color: @color-swatch2;
+        }
+        &.icon:after {
+            margin-left: 0;
+        }
+    }
+    .icon--previous:before,
+    .icon--pause:before,
+    .icon--next:after {
+        font-size: 12px;
+        font-weight: lighter;
+    }
+    @media only screen and (max-width:800px) {
+        margin: 20px 0 10px;
+        text-align: center;
+    }
+}
+
+// Slideshow Navigation for Mobile
+@media only screen and (max-width:480px) {
+    .slide-navigation {
+        width: auto;
+        min-height: inherit;
+        .button {
+            width: 38px;
+            min-height: 38px;
+            margin: 0 5px 0 0;
+        }
+    }
+}
+
+// Slideshow Pagination
+// --------------------
+
+// Pagination Item
+
+.responsiveslideshow .responsiveslideshow__pagination-item {
+
+    // Button
+    .button {
+        background-color: fade(@color-swatch4, 50%);
+        border: none;
+        min-height: initial;
+        text-indent: -1000px;
+        overflow: hidden;
+    }
+
+    // Selected Button
+    &.selected .button {
+        opacity: 1;
+        background-color: @color-swatch3;
+        min-height: inherit;
+    }
+}
+
+.slide-pagination {
+    position: relative;
+    max-width: 40%;
+    margin: 0 auto;
+}
+
+.slide-pagination .pagination-list {
+    display: inline-block;
+    width: 100%;
+    margin-top: 7px;
+    text-align: center;
+    .pagination-item {
+        margin: 0 2px;
+        display: inline-block;
+    }
+    .button {
+        width: 8px;
+        height: 8px;
+        min-height: inherit;
+        padding: 0;
+        text-indent: -9999px;
+        overflow: hidden;
+        box-shadow: none;
+        .border-radius(50px);
+        background-color: darken(@color__body--background, 20%);
+    }
+    .pagination-item.selected .button {
+        background-color: @color-swatch3;
+    }
+}
+
+// Responsive Columns
+// ------------------
+
+// Two Columns
+.columns-two-left,
+.columns-two-right,
+// Three Columns
+.columns-three-left,
+.columns-three-middle,
+.columns-three-right,
+// Four Columns
+.columns-four-first,
+.columns-four-second,
+.columns-four-third,
+.columns-four-fourth {
+    // Slideshow set minimum height
+    .responsiveslideshow .slides-list,
+    .responsiveslideshow .figure {
+        min-height: 300px;
+    }
+}
+
+
+// -----------------------------
+// 8.  #Buttons
+// -----------------------------
+
+// All buttons inherit #Standard button styles
+
+//  8.1  #Standard
+//  --------------
+
+button,
+.button {
+    padding: 9px 18px;
+    .border-radius(50px);
+    .transition( all, 0.5s, ease );
+    cursor: pointer;
+    background-color: @color__button--background;
+    color: @color__button--text;
+    border: 2px solid @color__button--border;
+    &:hover {
+        background-color: @color__button--background--hover;
+        color: @color-swatch7;
+    }
+}
+
+.click-to-call .icon:before {
+    margin-left: 2px;
+}
+
+
+//  8.5  #Paypal
+//  ------------
+
+.paypalbuynow form {
+    margin-bottom: 0;
+}
+
+
+// -----------------------------
+// 9.  #Contact Form
+// -----------------------------
+
+// Global form styles are set in 'less > template.less' (4. #Forms)
+
+
+// --------------------------------
+// 10.  #Signup Form & #Blog Search
+// --------------------------------
+
+
+// Styles are set in 'less > template.less' (4. #Forms)
+
+
+// -----------------------------
+// 11.  #Social Icons
+// -----------------------------
+
+.social-item {
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    background-color: @color__socialicons--icon--background;
+    width: 28px;
+    height: 28px;
+    margin-right: 3px;
+    text-align: center;
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+.social-link {
+    display: inline-block;
+    padding: 6px 8px;
+    &:before {
+        margin-right: 0;
+        font-size: 14px;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.icon--twitter:before {
+    color: #4099FF;
+}
+.icon--facebook:before {
+    color: #3B5998;
+}
+.icon--instagram:before {
+    color: #125688;
+}
+.icon--pinterest:before {
+    color: #cb2027;
+}
+.icon--rss:before {
+    color: #ff6600;
+}
+.icon--linkedin:before {
+    color: #007bb6;
+}
+.icon--googleplus:before {
+    color: #dd4b39;
+}
+.icon--youtube:before {
+    color: #bb0000;
+}
+.social-name {
+    display: none;
+}
+
+
+
+// -----------------------------
+// 12.  #Twitter Feed
+// -----------------------------
+
+.twitter {
+    padding-top: 35px;
+    .tweet-list {
+        .flex-display;
+        .flex-wrap(wrap);
+        .justify-content(space-between);
+        .align-items(stretch);
+        .align-content(stretch);
+
+        margin: 0 -10px;
+
+        @media @tablet {
+            display: inline-block;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+    }
+    .tweet-item {
+        position: relative;
+        margin: 0 10px 20px;
+        padding: 20px 30px;
+        background-color: @color__twitter-item--background;
+        border: 1px solid darken(@color__twitter-item--background, 9%);
+        .border-radius(3px);
+
+        -webkit-flex: 1 0 45%;
+        -ms-flex: 1 0 45%;
+        flex: 1 0 45%;
+
+        -webkit-box-shadow: 10px 5px 194px -41px rgba(0,0,0,0.2);
+        -moz-box-shadow: 10px 5px 194px -41px rgba(0,0,0,0.2);
+        box-shadow: 10px 5px 194px -41px rgba(0,0,0,0.2);
+
+        @media only screen and (min-width: 768px) {
+            padding: 50px 30px 20px;
+        }
+
+        @media @tablet {
+            display: block;
+            margin: 0 0 20px 0;
+        }
+
+        p {
+            color: @color__twitter-tweet--text;
+            padding-bottom: 0;
+            font-size: bkscale(@font__p--font-size,0.9);
+            line-height: bkscale(@font__p--line-height,0.9);
+        }
+        .tweet-wrap {
+            width: 100%;
+            text-align: left;
+
+            .flex-display;
+            .flex-direction(column);
+            .flex-wrap(wrap);
+            .justify-content(center);
+            .align-items(stretch);
+            .align-content(center);
+        }
+        .tweet-wrap a {
+            word-break: break-word;
+            word-wrap: break-word;
+            color: @color-swatch3;
+        }
+        .avatar {
+            @media only screen and (min-width: 768px) {
+                position: absolute;
+                top: -34.5px;
+                left: 50%;
+                margin-left: -32px;
+            }
+        }
+        .avatar {
+            max-width: 75px;
+            @media @tablet {
+                margin-bottom: 12px;
+            }
+        }
+        .avatar-image {
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+        }
+        .avatar {
+            display: inline-block;
+            vertical-align: top;
+            @media @mobile {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        .account-link {
+            color: @color__twitter-account-name--text;
+            font-family: @font__p--font-family;
+            font-size: bkscale(@font__p--font-size,0.9);
+            line-height: bkscale(@font__p--line-height,0.9);
+            font-weight: @font__p--font-weight;
+            letter-spacing: @font__p--letter-spacing;
+            text-transform: uppercase;
+
+        }
+        .tweet-content {
+            position: relative;
+            width: 100%;
+            padding-bottom: 10px;
+            a {
+                word-wrap: break-word;
+                // Fix for IE
+                -ms-hyphens: auto;
+            }
+
+        }
+        .tweet-metadata {
+            font-size: 90%;
+
+            .timestamp,
+            .via {
+                color: darken(@color__body--background, 30%);
+            }
+            .timestamp,
+            .via,
+            a,
+            span {
+                font-size: bkscale(@font__p--font-size,0.75);
+                line-height: bkscale(@font__p--line-height,0.7);
+            }
+            .retweeted-by {
+                display: inline-block;
+                width: 100%;
+                color: darken(@color__body--background, 30%);
+            }
+        }
+    }
+}
+
+.responsivecolumns .twitter {
+    .tweet-list {
+        width: 100%;
+        margin: 0;
+    }
+    .tweet-list,
+    .tweet-item {
+        display: block;
+    }
+    .tweet-item,
+    .tweet-item:first-child {
+        margin: 0 0 20px 0;
+    }
+}
+
+
+
+
+// -----------------------------
+// 13.  #Divider (Keyline)
+// -----------------------------
+
+hr.rule {
+    height: 3px;
+    background-color: darken(@color__body--background, 8%);
+}
+
+
+// Horizontal rule in blog posts
+hr {
+    height: 2px;
+    border: 0;
+    margin-bottom: 18px;
+    background-color: darken(@color__body--background, 8%);
+}
+
+
+
+// -----------------------------
+// 14. #Profile
+// -----------------------------
+
+.widget[data-widget-type="profile"] {
+    margin-bottom: 0;
+}
+
+.profile {
+    text-align: center;
+    @media only screen and (min-width: 678px) {
+        padding: 0 8em 0;
+    }
+    h1,h2,h3,p, a {
+        padding-bottom: 0;
+
+        font-family: @font__p--font-family;
+        color: @color-swatch7;
+        font-size: @font__p--font-size;
+        font-weight: @font__p--font-weight;
+        line-height: @font__p--line-height;
+    }
+    // Twitter
+    .tweet-item {
+        padding: 0;
+        padding-left: 0;
+        margin: 0 auto;
+        background-color: @color__body--background;
+        border: none;
+        max-width: 100%;
+    }
+    .avatar-image { display: none; }
+
+    // Social Icons
+    .social-list {
+        margin-top: 18px;
+    }
+
+    // Address
+    .address-line {
+        padding-bottom: 0;
+    }
+}
+
+// Phone number for tablet and desktop styled as normal paragraph text
+@media only screen and (min-width: 481px) {
+    .profile a.phone-number-link {
+        color: @color-swatch5;
+        &:hover {
+            text-decoration: none;
+            cursor: default;
+        }
+    }
+}
+
+// Profile Signup Form
+// --------------------------------
+
+.profile .signupform {
+    .form { 
+        max-width: 450px;
+        margin: 20px auto;
+        background-color: transparent;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        @media @mobile {
+            margin: 10px 0;
+        }
+    }
+    .form-body {
+        padding: 0;
+    }
+    input {
+        .border-radius(3px);
+        @media @mobile {
+            text-align: center;
+        }
+    }
+    legend, label, button {
+        color: @color-swatch7;
+        padding: 0;
+    }
+   // Label for tablet and desktop
+    .label {
+        @media only screen and (min-width: 481px) {
+            float: left;
+        }
+    }
+    .button {
+        padding: 4px 18px;
+    }
+}
+
+
+
+// -----------------------------
+// 15.  #Map
+// -----------------------------
+
+
+.bk-map.map.widget__map {
+    height: auto;
+}
+
+
+
+
+// -----------------------------
+// 16.  #Yelp
+// -----------------------------
+
+
+.yelpreview ul {
+    list-style: none;
+    margin: 16px 0;
+}
