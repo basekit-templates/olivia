@@ -20,17 +20,6 @@
 // 1. #Single Product
 // -------------------------------
 
-// Style for tablet and desktop
-
-.product-article {
-    @media only screen and (min-width: 450px) {
-        float: left;
-        padding: 3em;
-        width: 100%;
-        background-color: @color__ecomproduct--background;
-    }
-}
-
 // Product images
 // --------------
 
@@ -99,6 +88,9 @@
 }
 .product-actions .form {
     background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
     legend {
         padding: 0;
         color: @color-swatch4;
@@ -145,8 +137,10 @@
     width: 47%;
     text-align: center;
     background-color: @color__button--background--hover;
+    color: @color-swatch7;
     &:hover {
         background-color: @color__button--background;
+        color: @color-swatch3;
     }
     @media only screen and (max-width: 450px) {
         width: 100%;

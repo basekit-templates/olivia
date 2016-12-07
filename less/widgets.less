@@ -624,8 +624,6 @@ a.company-link:hover {
 // 7.  #Slideshow
 // -----------------------------
 
-
-
 // Slideshow Layout
 // ----------------
 
@@ -856,6 +854,34 @@ a.company-link:hover {
     .responsiveslideshow .figure {
         min-height: 300px;
     }
+    .responsiveslideshow .caption {
+        padding: 10px;
+        @media only screen and (min-width:800px) {
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            top: inherit;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    .slide-navigation {
+        @media only screen and (min-width:800px) {
+            margin: 0;
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 67px;
+            width: 100%;
+            padding: 20px;
+        }
+    }
+    .image-title {
+        @media only screen and (min-width:800px) {
+            font-size: @font__h4--font-size;
+            line-height: @font__h4--line-height;
+        }
+    }
 }
 
 
@@ -1010,7 +1036,8 @@ button,
         box-shadow: 10px 5px 194px -41px rgba(0,0,0,0.2);
 
         @media only screen and (min-width: 768px) {
-            padding: 50px 30px 20px;
+            padding: 35px 30px 20px;
+            margin-top: 15px;
         }
 
         @media @tablet {
@@ -1043,13 +1070,13 @@ button,
         .avatar {
             @media only screen and (min-width: 768px) {
                 position: absolute;
-                top: -34.5px;
+                top: -24px;
                 left: 50%;
-                margin-left: -32px;
+                margin-left: -24px;
             }
         }
         .avatar {
-            max-width: 75px;
+            width:48px;
             @media @tablet {
                 margin-bottom: 12px;
             }
