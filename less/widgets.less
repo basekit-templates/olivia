@@ -1101,7 +1101,6 @@ button,
             line-height: bkscale(@font__p--line-height,0.9);
             font-weight: @font__p--font-weight;
             letter-spacing: @font__p--letter-spacing;
-            text-transform: uppercase;
 
         }
         .tweet-content {
@@ -1189,7 +1188,7 @@ hr {
     @media only screen and (min-width: 678px) {
         padding: 0 8em 0;
     }
-    h1,h2,h3,p, a {
+    h1,h2,h3,p, a, .phone-number, .tweet-item p, .tweet-metadata .timestamp {
         padding-bottom: 0;
 
         font-family: @font__p--font-family;
@@ -1198,12 +1197,18 @@ hr {
         font-weight: @font__p--font-weight;
         line-height: @font__p--line-height;
     }
+    .icon--phone:before {
+        color: @color-swatch7;
+    }
     // Twitter
     .tweet-item {
         padding: 0;
         padding-left: 0;
         margin: 0 auto;
-        background-color: @color__body--background;
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
         border: none;
         max-width: 100%;
     }
