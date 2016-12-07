@@ -807,6 +807,9 @@ a.company-link:hover {
     position: relative;
     max-width: 40%;
     margin: 0 auto;
+    @media only screen and (min-width:800px) {
+        top: -30px;
+    }
 }
 
 .slide-pagination .pagination-list {
@@ -874,12 +877,18 @@ a.company-link:hover {
             height: 67px;
             width: 100%;
             padding: 20px;
+            text-align: center;
         }
     }
     .image-title {
         @media only screen and (min-width:800px) {
             font-size: @font__h4--font-size;
             line-height: @font__h4--line-height;
+        }
+    }
+    .slide-pagination {
+        @media only screen and (min-width:800px) {
+            top: 0;
         }
     }
 }
@@ -1188,7 +1197,8 @@ hr {
     @media only screen and (min-width: 678px) {
         padding: 0 8em 0;
     }
-    h1,h2,h3,p, a, .phone-number, .tweet-item p, .tweet-metadata .timestamp {
+    h1,h2,h3,p, a, .phone-number, .tweet-item p,
+    .twitter .tweet-item .tweet-metadata .timestamp {
         padding-bottom: 0;
 
         font-family: @font__p--font-family;
@@ -1202,7 +1212,9 @@ hr {
     }
     // Twitter
     .twitter {
-        margin-top: 0;
+        max-width: 450px;
+        margin: 0 auto;
+        padding-top: 10px;
     }
     .tweet-item {
         padding: 0;
@@ -1215,7 +1227,7 @@ hr {
         border: none;
         max-width: 100%;
     }
-    .avatar-image { display: none; }
+    .avatar { display: none; }
 
     // Social Icons
     .social-list {
