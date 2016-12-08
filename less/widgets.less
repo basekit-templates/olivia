@@ -361,10 +361,14 @@ a.company-link:hover {
 
     .button {
         margin-top: 10px;
+        color: @color__feature-button--text;
+        background-color: @color__feature-button--background;
+        border: 2px solid @color__feature-button--border;
     }
 
     .button:hover {
         background-color: @color__feature-button--background--hover;
+        border: 2px solid @color__feature-button--background--hover;
     }
 
 }
@@ -914,6 +918,7 @@ button,
     border: 2px solid @color__button--border;
     &:hover {
         background-color: @color__button--background--hover;
+        border: 2px solid @color__button--background--hover;
         color: @color-swatch7;
     }
 }
@@ -1106,8 +1111,8 @@ button,
         .account-link {
             color: @color__twitter-account-name--text;
             font-family: @font__p--font-family;
-            font-size: bkscale(@font__p--font-size,0.9);
-            line-height: bkscale(@font__p--line-height,0.9);
+            font-size: @font__p--font-size,0.9;
+            line-height: @font__p--line-height,0.9;
             font-weight: @font__p--font-weight;
             letter-spacing: @font__p--letter-spacing;
 
@@ -1227,6 +1232,10 @@ hr {
         box-shadow: none;
         border: none;
         max-width: 100%;
+    }
+
+    .twitter .tweet-item .account-link {
+
     }
     .twitter .tweet-item .avatar { display: none; }
 

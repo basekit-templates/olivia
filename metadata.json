@@ -188,10 +188,10 @@
         "feature": {
             "color__feature-headline--text": "@font-swatch8-color",
             "color__feature-strapline--text": "@font-swatch9-color",
-            "color__feature-button--text": "@font-swatch7-color",
-            "color__feature-button--background": "@color__secondary",
-            "color__feature-button--background--hover": "darken(@color__secondary, 10%)",
-            "color__feature-button--border": "transparent",
+            "color__feature-button--text": "@color__button--text",
+            "color__feature-button--background": "@color__button--background",
+            "color__feature-button--background--hover": "@color__button--background--hover",
+            "color__feature-button--border": "@color__button--border",
             "color__feature-content--background":"#ffffff",
 
 
