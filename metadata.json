@@ -177,7 +177,6 @@
             "color__navigation--text": "@font-swatch6-color",
             "color__navigation--text--hover": "@font-swatch6-color-hover",
             "color__navigation--text--selected": "@color__primary",
-            "color__navigation--background": "@color-swatch7",
 
             "font__navigation--font-family" : "@font-swatch6-font-family",
             "font__navigation--font-size" : "@font-swatch6-font-size",
@@ -229,9 +228,6 @@
             "color__twitter-account-name--text": "@color__secondary",
             "color__twitter-tweet--text": "@font-swatch5-color"
         },
-        "socialicons": {
-            "color__socialicons--icon--background": "@color-swatch7"
-        },
         "blog": {
             "color__blogpostlist-title--text": "@color__secondary",
             "color__blogpost-title--text": "@font-swatch1-color"
@@ -240,7 +236,6 @@
             "color__ecomproductslist-label--text": "@color__form-label--text",
             "color__ecomproductslist-product-title--text": "@font-swatch3-color",
             "color__ecomproductslist-filters--background": "darken(@color__body--background, 3%)",
-            "color__ecomproduct--background": "darken(@color__body--background, 3%)",
             "color__ecomproduct-title--text": "@font-swatch1-color",
             "color__ecomproduct-price--text": "@font-swatch3-color",
             "color__ecombasket-button--background": "@color__primary",

@@ -157,7 +157,7 @@ a.company-link:hover {
     min-width: 200px;
     white-space: normal;
     border: 1px solid darken(@color__body--background, 7%);
-    background-color: @color__navigation--background;
+    background-color: @color-swatch7;
     // Padding for folder list and folder items on desktop
     @media only screen and (min-width: 769px) {
         padding: 7px 0;
@@ -189,7 +189,7 @@ a.company-link:hover {
         height: 45px;
         text-indent: -9999px;
         line-height: 0;
-        background-color: darken(@color__navigation--background, 10%);
+        background-color: darken(@color-swatch7, 10%);
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         border-radius: 0;
@@ -205,8 +205,8 @@ a.company-link:hover {
             right: 0;
             margin-top: 15px;
             margin-left: -13px;
-            background: darken(@color__navigation--background, 50%);
-            box-shadow: 0 6px 0 darken(@color__navigation--background, 50%);
+            background: darken(@color-swatch7, 50%);
+            box-shadow: 0 6px 0 darken(@color-swatch7, 50%);
             .transition( all, 0.5s, ease );
         }
         &:after {
@@ -219,7 +219,7 @@ a.company-link:hover {
             right: 0;
             margin-top: 15px;
             margin-left: -13px;
-            background: darken(@color__navigation--background, 50%);
+            background: darken(@color-swatch7, 50%);
             .transition( all, 0.5s, ease );
         }
     }
@@ -958,7 +958,7 @@ button,
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    background-color: @color__socialicons--icon--background;
+    background-color: @color;
     width: 28px;
     height: 28px;
     margin-right: 3px;
@@ -1078,7 +1078,7 @@ button,
         .tweet-wrap a {
             word-break: break-word;
             word-wrap: break-word;
-            color: @color-swatch3;
+            color: @color__twitter-account-name--text;
         }
         .avatar {
             @media only screen and (min-width: 768px) {
@@ -1144,7 +1144,7 @@ button,
             .retweeted-by {
                 display: inline-block;
                 width: 100%;
-                color: darken(@color__body--background, 30%);
+                color: lighten(@color__twitter-tweet--text, 15%);
             }
         }
     }
@@ -1234,8 +1234,9 @@ hr {
     .twitter .tweet-item .avatar { display: none; }
 
     // Social Icons
-    .social-list {
-        margin-top: 18px;
+
+    .social-link {
+        padding: 2px 8px;
     }
 
     // Address
