@@ -26,7 +26,7 @@
         "font1": {
             "font-family": "\"Quicksand\", \"Raleway\", \"Lucida Grande\", Helvetica, sans-serif",
             "font-size": "30px",
-            "font-weight": "400",
+            "font-weight": "700",
             "line-height": "36px",
             "color": "@color-swatch4",
             "letter-spacing": "0px"
