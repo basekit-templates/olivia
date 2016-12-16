@@ -582,10 +582,10 @@ a.company-link:hover {
     margin: 0;
     padding: 20px;
     opacity: 0;
-    background-color: hsla(hue(@color__body--background),
-                           saturation(@color__body--background),
-                           lightness(@color__body--background), 0.8);
-    border: 1px solid darken(@color__body--background, 5%);
+    background-color: hsla(hue(@color-swatch7),
+                           saturation(@color-swatch7),
+                           lightness(@color-swatch7), 0.8);
+    border: 1px solid darken(@color-swatch7, 5%);
     .transition( all, 0.5s, ease );
 }
 
@@ -738,8 +738,8 @@ a.company-link:hover {
         width: 40px;
         height: 40px;
         color: @color-swatch4;
-        background-color: lighten(@color__body--background,5%);
-        border: 1px solid lighten(@color__body--background,2%);
+        background-color: darken(@color-swatch7,7%);
+        border: 1px solid darken(@color-swatch7,9%);
         &:hover {
             color: @color-swatch7;
             background-color: @color-swatch2;
