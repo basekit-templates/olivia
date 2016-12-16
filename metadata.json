@@ -218,7 +218,7 @@
             "color__slideshow--background": "transparent",
             "color__slideshow-title--text": "@font-swatch8-color",
             "color__slideshow-description--text": "@font-swatch9-color",
-            "color__slideshow-caption--background": "hsla(hue(@color-swatch7), saturation(@color-swatch7), lightness(@color-swatch7), 0.85)",
+            "color__slideshow-caption--background": "hsla(hue(@color-swatch7), saturation(@color-swatch7), lightness(@color-swatch7), 0.9)",
             "color__slideshow-pagination-item--background": "darken(@color__body--background, 20%)",
             "color__slideshow-pagination-item--background--selected": "@color__secondary"
         },
