@@ -162,7 +162,6 @@
             "font__p--letter-spacing" : "@font-swatch5-letter-spacing"
         },
         "button": {
-            "color__button--background": "transparent",
             "color__button--background--hover": "@color-swatch3",
             "color__button--text": "@font-swatch7-color",
             "color__button--border" : "@color-swatch3",
@@ -188,7 +187,7 @@
             "color__feature-headline--text": "@font-swatch8-color",
             "color__feature-strapline--text": "@font-swatch9-color",
             "color__feature-button--text": "@color__button--text",
-            "color__feature-button--background": "@color__button--background",
+            "color__feature-button--background": "transparent",
             "color__feature-button--background--hover": "@color__button--background--hover",
             "color__feature-button--border": "@color__button--border",
             "color__feature-content--background":"#ffffff",
@@ -219,8 +218,8 @@
             "color__slideshow--background": "transparent",
             "color__slideshow-title--text": "@font-swatch8-color",
             "color__slideshow-description--text": "@font-swatch9-color",
-            "color__slideshow-caption--background": "@color-swatch7",
-            "color__slideshow-pagination-item--background": "hsla(hue(@color-swatch1), saturation(@color-swatch1), lightness(@color-swatch1), 0.5)",
+            "color__slideshow-caption--background": "hsla(hue(@color-swatch7), saturation(@color-swatch7), lightness(@color-swatch7), 0.85)",
+            "color__slideshow-pagination-item--background": "darken(@color__body--background, 20%)",
             "color__slideshow-pagination-item--background--selected": "@color__secondary"
         },
         "twitter": {

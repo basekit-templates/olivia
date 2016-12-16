@@ -189,7 +189,6 @@ a.company-link:hover {
         height: 45px;
         text-indent: -9999px;
         line-height: 0;
-        background-color: darken(@color-swatch7, 10%);
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         border-radius: 0;
@@ -205,8 +204,8 @@ a.company-link:hover {
             right: 0;
             margin-top: 15px;
             margin-left: -13px;
-            background: darken(@color-swatch7, 50%);
-            box-shadow: 0 6px 0 darken(@color-swatch7, 50%);
+            background: @color__navigation--text;
+            box-shadow: 0 6px 0 @color__navigation--text;
             .transition( all, 0.5s, ease );
         }
         &:after {
@@ -219,29 +218,27 @@ a.company-link:hover {
             right: 0;
             margin-top: 15px;
             margin-left: -13px;
-            background: darken(@color-swatch7, 50%);
+            background: @color__navigation--text;
             .transition( all, 0.5s, ease );
         }
     }
     .navigation-toggle:hover {
-        background-color: @color-swatch3;
         border: none;
             &:before {
-                background: @color-swatch7;
-                box-shadow: 0 6px 0 @color-swatch7;
+                background: @color__navigation--text--hover;
+                box-shadow: 0 6px 0 @color__navigation--text--hover;
             }
             &:after {
-                background: @color-swatch7;
+                background: @color__navigation--text--hover;
             }
     }
     // Toggle Button Open State
     .open & {
         &.navigation-toggle {
-            background-color: @color-swatch3;
             border: none;
             &:before {
                 margin-top: 21px;
-                background: @color-swatch7;
+                background: @color__navigation--text;
                 box-shadow: none;
                 -webkit-transform: rotate(45deg);
                 -moz-transform: rotate(45deg);
@@ -260,7 +257,7 @@ a.company-link:hover {
                 right: 0;
                 margin-top: 21px;
                 margin-left: -13px;
-                background: @color-swatch7;
+                background: @color__navigation--text;
                 box-shadow: none;
                 -webkit-transform: rotate(-45deg);
                 -moz-transform: rotate(-45deg);
@@ -271,10 +268,9 @@ a.company-link:hover {
             }
         }
         &.navigation-toggle:hover {
-            background-color: lighten(@color-swatch3,10%);
             &:before,
             &:after {
-                background: @color-swatch7;
+                background: @color__navigation--text--hover;
             }
         }
     }
@@ -309,12 +305,8 @@ a.company-link:hover {
         min-height: 500px;
         height: 500px;
         @media @tablet {
-            min-height: 350px;
-            height: 350px;
-        }
-        @media screen and (max-width: 600px) {
-            min-height: 300px;
-            height: 300px;
+            min-height: 400px;
+            height: 400px;
         }
     }
 
@@ -337,13 +329,10 @@ a.company-link:hover {
         padding: 20px 30px;
         background-color: @color__feature-content--background;
         text-align: center;
-        @media screen and (max-width: 600px) {
-            text-align: center;
-        }
     }
 
     .headline {
-        padding-bottom: 5px;
+        padding-top: 5px;
         font-family: @font__feature-headline--font-family;
         color: @color__feature-headline--text;
         font-size: @font__feature-headline--font-size;
@@ -352,7 +341,6 @@ a.company-link:hover {
     }
 
     .strapline {
-        padding-bottom: 0;
         font-family: @font__feature-strapline--font-family;
         color: @color__feature-strapline--text;
         font-size: @font__feature-strapline--font-size;
@@ -381,8 +369,8 @@ a.company-link:hover {
 @media @tablet {
     .feature {
         .headline {
-            font-size: bkscale(@font__feature-headline--font-size, .9);
-            line-height: bkscale(@font__feature-headline--line-height, .9);
+            font-size: bkscale(@font__feature-headline--font-size, .8);
+            line-height: bkscale(@font__feature-headline--line-height, .8);
         }
     }
 }
@@ -390,9 +378,13 @@ a.company-link:hover {
 @media only screen and (max-width : 600px) {
     .feature {
         .headline {
-            font-size: bkscale(@font__feature-headline--font-size, .8);
-            line-height: bkscale(@font__feature-headline--line-height, .8);
+            padding-top: 0;
+            font-size: bkscale(@font__feature-headline--font-size, .75);
+            line-height: bkscale(@font__feature-headline--line-height, .75);
         }
+    }
+    .feature .button {
+        margin-top: 5px;
     }
 }
 
@@ -749,8 +741,8 @@ a.company-link:hover {
         width: 40px;
         height: 40px;
         color: @color-swatch4;
-        background-color: darken(@color__body--background,10%);
-        border: 1px solid darken(@color__body--background,12%);
+        background-color: lighten(@color__body--background,5%);
+        border: 1px solid lighten(@color__body--background,2%);
         &:hover {
             color: @color-swatch7;
             background-color: @color-swatch2;
@@ -789,25 +781,6 @@ a.company-link:hover {
 
 // Pagination Item
 
-.responsiveslideshow .responsiveslideshow__pagination-item {
-
-    // Button
-    .button {
-        background-color: fade(@color-swatch4, 50%);
-        border: none;
-        min-height: initial;
-        text-indent: -1000px;
-        overflow: hidden;
-    }
-
-    // Selected Button
-    &.selected .button {
-        opacity: 1;
-        background-color: @color-swatch3;
-        min-height: inherit;
-    }
-}
-
 .slide-pagination {
     position: relative;
     max-width: 40%;
@@ -835,10 +808,11 @@ a.company-link:hover {
         overflow: hidden;
         box-shadow: none;
         .border-radius(50px);
-        background-color: darken(@color__body--background, 20%);
+        border: none;
+        background-color: @color__slideshow-pagination-item--background;
     }
     .pagination-item.selected .button {
-        background-color: @color-swatch3;
+        background-color: @color__slideshow-pagination-item--background--selected;
     }
 }
 
@@ -914,7 +888,7 @@ button,
     .border-radius(50px);
     .transition( all, 0.5s, ease );
     cursor: pointer;
-    background-color: @color__button--background;
+    background-color: transparent;
     color: @color__button--text;
     border: 2px solid @color__button--border;
     &:hover {
@@ -1110,6 +1084,7 @@ button,
             }
         }
         .account-link {
+            padding-bottom: 5px;
             color: @color__twitter-account-name--text;
             font-family: @font__h3--font-family;
             font-size: @font__h3--font-size;
