@@ -7,6 +7,7 @@
     "pageTypes": ["home"],
     "images":[
         "images/feature-bg.jpg",
+        "images/body-back-img.png",
         "images/logo.png"
     ],
     "colorSwatches":
