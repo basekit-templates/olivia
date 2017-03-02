@@ -1,7 +1,7 @@
 {
     "name": "Olivia",
     "widgetVersion":2,
-    "screenshot": "screenshot.jpg",
+    "screenshot": "olivia-screenshot.jpg",
     "templateType":"standard",
     "pageTypes": ["home"],
     "images":[
