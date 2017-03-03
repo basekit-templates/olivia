@@ -2,6 +2,7 @@
     "name": "Olivia",
     "widgetVersion":2,
     "screenshot": "olivia-screenshot.jpg",
+    "thumbnail": "thumbnail.jpg",
     "templateType":"standard",
     "pageTypes": ["home"],
     "images":[
